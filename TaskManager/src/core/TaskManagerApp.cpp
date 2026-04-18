@@ -1,4 +1,4 @@
-#include "TodoListApp.h"
+#include "TaskManagerApp.h"
 
 #include <fstream>
 
@@ -6,8 +6,8 @@
 //OUTPUT: 
 //PRECONDITION: 
 //POSTCONDITION: 
-void TodoListApp::init(){
-	std::fstream file("app_data.txt", std::ios::in);
+void TaskManagerApp::init(){
+	std::fstream file("../../../../data/app_data.txt", std::ios::in);
 	manager.deserialize(file);
 	file.close();
 }
@@ -16,7 +16,7 @@ void TodoListApp::init(){
 //OUTPUT: 
 //PRECONDITION: 
 //POSTCONDITION: 
-void TodoListApp::run() {
+void TaskManagerApp::run() {
 	UI::welcomeMenu();
 	while (true) {
 		Date date;
@@ -51,8 +51,8 @@ void TodoListApp::run() {
 //OUTPUT: 
 //PRECONDITION: 
 //POSTCONDITION: 
-void TodoListApp::exit() {
-	std::fstream file("app_data.txt", std::ios::out | std::ios::trunc);
+void TaskManagerApp::exit() {
+	std::fstream file("../../../../data/app_data.txt", std::ios::out | std::ios::trunc);
 	manager.serialize(file);
 	file.close();
 }
